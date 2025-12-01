@@ -56,37 +56,23 @@ const services: Service[] = [
     description:
       "Thorough turnover cleans to help deposits be returned faster.",
     image:
-      "https://images.unsplash.com/photo-150377732 Wend?d=320&f=png", // safe fallback (will adjust)
+      "https://images.unsplash.com/photo-1523411654518-c37fcb3a1f9a?w=800&h=600&fit=crop",
   },
 ];
 
 const Services: React.FC = () => {
-  // Fix last image string to a valid URL
-  services[5].image =
-    "https://images.unsplash.com/photo-1523419408685-0b3cfb85e1e6?w=800&h=600&fit=crop";
-
   return (
-    <section className="py-16">
+    <section className="py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold">Our Cleaning Services</h1>
-          <Link to="/contact" className="px-4 py-2 rounded-full bg-blue-600 text-white font-semibold">
-            Get a Quote
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((s) => (
-            <div key={s.slug} className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-              <div className="h-40 bg-gray-200" style={{ backgroundImage: `url('${s.image}')`, backgroundSize: "cover", backgroundPosition: "center" }} aria-label={s.title} role="img" />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{s.title}</h3>
-                <p className="text-sm text-slate-700 mb-4">{s.description}</p>
-                <Link to={`/services/${s.slug}`} className="px-4 py-2 rounded-full bg-gradient-to-br from-blue-600 to-teal-500 text-white font-semibold">
-                  Learn More
-                </Link>
-              </div>
-            </div>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map((svc) => (
+            <ServiceCard
+              key={svc.slug}
+              slug={svc.slug}
+              title={svc.title}
+              description={svc.description}
+              image={svc.image}
+            />
           ))}
         </div>
       </div>
