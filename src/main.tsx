@@ -11,6 +11,8 @@ import Blog from "./pages/Blog";
 
 import "./index.css";
 
+const basePath = "/chipify/projects/a23c2614-e42a-4c54-95f6-bb17e2babab9/preview";
+
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
