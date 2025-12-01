@@ -11,7 +11,10 @@ import Blog from "./pages/Blog";
 
 import "./index.css";
 
-const basePath = "/chipify/projects/a23c2614-e42a-4c54-95f6-bb17e2babab9/preview";
+// Use Vite's BASE_URL with a safe fallback to avoid runtime errors when undefined
+// Previously: const basePath = "...";
+// Now: provide a robust basename directly from the environment
+const basePath = import.meta.env.BASE_URL ?? "/";
 
 const root = createRoot(document.getElementById("root") as HTMLElement);
 
